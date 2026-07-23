@@ -77,6 +77,16 @@
   .langsel .menu a{display:block;padding:8px 12px;border-radius:7px;color:var(--ink2);font-size:14px}
   .langsel .menu a:hover{background:var(--soft);color:var(--ink)}
   .langsel .menu a[aria-current="true"]{color:var(--accent);font-weight:600;background:var(--accent-soft)}
+  /* download dropdown (nav) */
+  .dldrop{position:relative}
+  .dldrop summary{list-style:none;cursor:pointer}
+  .dldrop summary::-webkit-details-marker{display:none}
+  .dldrop summary .caret{font-size:10px;opacity:.85}
+  .dldrop .menu{position:absolute;inset-inline-end:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);padding:7px;min-width:210px;z-index:70}
+  .dldrop .menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:var(--ink);font-size:14px;font-weight:500}
+  .dldrop .menu a:hover{background:var(--soft)}
+  .dldrop .menu a.rec-os{background:var(--accent-soft)}
+  .dldrop .menu a .star{margin-inline-start:auto;font-size:11px;color:var(--accent)}
   @media(max-width:900px){.nav .links{display:none}.nav .act .ghostlink{display:none}}
 
   .hero{padding:70px 0 58px;border-bottom:1px solid var(--line)}
@@ -202,8 +212,15 @@
     </div>
     <div class="act">
       <details class="langsel"><summary>Português (BR)</summary><div class="menu"><a href="/">English</a><a href="/ro/">Română</a><a href="/it/">Italiano</a><a href="/es/">Español</a><a href="/pt/" aria-current="true">Português (BR)</a><a href="/ru/">Русский</a><a href="/tr/">Türkçe</a><a href="/ar/">العربية</a><a href="/fa/">فارسی</a><a href="/ur/">اردو</a><a href="/hi/">हिन्दी</a><a href="/vi/">Tiếng Việt</a><a href="/id/">Bahasa Indonesia</a><a href="/zh/">中文</a></div></details>
-      <a href="#download" class="ghostlink" style="font-size:14.5px;color:var(--ink2);font-weight:500">Contato</a>
-      <a href="#download" class="btn btn-primary btn-sm">Baixar</a>
+      <a href="#contact" class="ghostlink" style="font-size:14.5px;color:var(--ink2);font-weight:500">Contato</a>
+      <details class="dldrop">
+        <summary class="btn btn-primary btn-sm">Baixar <span class="caret">▾</span></summary>
+        <div class="menu">
+          <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB-Setup.exe" data-os="win">🪟 Windows</a>
+          <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB.dmg" data-os="mac">🍎 macOS</a>
+          <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB_amd64.deb" data-os="linux">🐧 Linux</a>
+        </div>
+      </details>
     </div>
   </div>
 </header>
@@ -217,7 +234,7 @@
       <h1>Suas ferramentas de serviço, disponíveis em toda a sua rede.</h1>
       <p class="lead">O ShareUSB conecta os dispositivos USB e os telefones das suas oficinas — remotamente e com segurança, com controle de acesso granular, auditoria completa e operação ininterrupta como serviço.</p>
       <div class="hero-cta">
-        <a href="#download" class="btn btn-primary">Baixar para Windows</a>
+        <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB-Setup.exe" class="btn btn-primary">Baixar para Windows</a>
         <a href="#how" class="btn btn-outline">Veja como funciona</a>
       </div>
       <div class="hero-sub">
@@ -328,14 +345,15 @@
   </div>
 </section>
 
-<section>
+<section id="download">
   <div class="wrap">
     <div class="cta">
-      <h2>Pronto para conectar sua oficina?</h2>
+      <h2>Pronto para começar?</h2>
       <p>Instalação 1-clique, com os drivers incluídos. Sem conta obrigatória — você recebe um ID e fica on-line.</p>
       <div class="hero-cta" style="justify-content:center">
-        <a href="#" class="btn btn-primary">Baixar para Windows</a>
-        <a href="#features" class="btn btn-outline">Explore a plataforma</a>
+        <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB-Setup.exe" class="btn btn-primary">🪟 Baixar para Windows</a>
+        <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB.dmg" class="btn btn-outline">🍎 macOS</a>
+        <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB_amd64.deb" class="btn btn-outline">🐧 Linux</a>
       </div>
       <div class="plats">Windows (completo) · macOS (compartilhar) · Linux (compartilhar)</div>
     </div>
@@ -351,8 +369,8 @@
         <a class="brand" href="#top" style="margin-bottom:6px"><span class="mark"><svg><use href="#plug"/></svg></span><b>ShareUSB</b></a>
         <p>Infraestrutura de compartilhamento USB &amp; ADB para redes de reparo GSM.</p>
       </div>
-      <div class="fcol"><h4>Produto</h4><a href="#features">Plataforma</a><a href="#security">Segurança</a><a href="#modes">Modos</a><a href="#download">Baixar</a></div>
-      <div class="fcol"><h4>Recursos</h4><a href="#how">Como funciona</a><a href="#download">Contato</a></div>
+      <div class="fcol"><h4>Produto</h4><a href="#features">Plataforma</a><a href="#security">Segurança</a><a href="#modes">Modos</a><a href="#how">Como funciona</a><a href="#download">Baixar</a></div>
+      <div class="fcol" id="contact"><h4>Contato</h4><a href="https://t.me/krakiun" target="_blank" rel="noopener">Telegram · @krakiun</a><a href="mailto:info@shareusb.app">info@shareusb.app</a></div>
     </div>
     <div class="fbot">
       <span>© 2026 ShareUSB. Todos os direitos reservados.</span>
@@ -360,6 +378,26 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Auto-detecție OS: pune opțiunea potrivită prima în dropdown-ul de download,
+  // cu un ★. Fără JS, dropdown-ul rămâne în ordinea implicită (Windows/macOS/Linux).
+  (function () {
+    var ua = navigator.userAgent || "";
+    var os = /Windows/.test(ua) ? "win"
+      : /Macintosh|Mac OS X/.test(ua) ? "mac"
+      : /Linux/.test(ua) && !/Android/.test(ua) ? "linux"
+      : null;
+    if (!os) return;
+    var menu = document.querySelector(".dldrop .menu");
+    if (!menu) return;
+    var a = menu.querySelector('a[data-os="' + os + '"]');
+    if (!a) return;
+    a.classList.add("rec-os");
+    a.insertAdjacentHTML("beforeend", '<span class="star">★</span>');
+    menu.insertBefore(a, menu.firstElementChild);
+  })();
+</script>
 
 </body>
 </html>
