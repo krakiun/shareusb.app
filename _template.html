@@ -68,10 +68,12 @@
   .dldrop summary{list-style:none;cursor:pointer}
   .dldrop summary::-webkit-details-marker{display:none}
   .dldrop summary .caret{font-size:10px;opacity:.85}
-  .dldrop .menu{position:absolute;inset-inline-end:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);padding:7px;min-width:210px;z-index:70}
-  .dldrop .menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:var(--ink);font-size:14px;font-weight:500}
+  .dldrop .menu{position:absolute;inset-inline-end:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);padding:0;overflow:hidden;min-width:226px;z-index:70}
+  .dldrop .menu a{display:flex;align-items:center;gap:11px;padding:13px 16px;color:var(--ink);font-size:14px;font-weight:500}
+  .dldrop .menu a+a{border-top:1px solid var(--line)}
   .dldrop .menu a:hover{background:var(--soft)}
   .dldrop .menu a.rec-os{background:var(--accent-soft)}
+  .dldrop .menu a .ico{width:22px;text-align:center;font-size:16px;line-height:1;flex:none}
   .dldrop .menu a .star{margin-inline-start:auto;font-size:11px;color:var(--accent)}
   @media(max-width:900px){.nav .links{display:none}.nav .act .ghostlink{display:none}}
 
@@ -202,9 +204,9 @@
       <details class="dldrop">
         <summary class="btn btn-primary btn-sm">{{nav_download}} <span class="caret">▾</span></summary>
         <div class="menu">
-          <a href="{{DL_WIN}}" data-os="win">🪟 Windows</a>
-          <a href="{{DL_MAC}}" data-os="mac">🍎 macOS</a>
-          <a href="{{DL_LINUX}}" data-os="linux">🐧 Linux</a>
+          <a href="{{DL_WIN}}" data-os="win"><span class="ico">🪟</span>Windows</a>
+          <a href="{{DL_MAC}}" data-os="mac"><span class="ico">🍎</span>macOS</a>
+          <a href="{{DL_LINUX}}" data-os="linux"><span class="ico">🐧</span>Linux</a>
         </div>
       </details>
     </div>
@@ -223,9 +225,9 @@
         <details class="dldrop">
           <summary class="btn btn-primary">{{nav_download}} <span class="caret">▾</span></summary>
           <div class="menu">
-            <a href="{{DL_WIN}}" data-os="win">🪟 Windows</a>
-            <a href="{{DL_MAC}}" data-os="mac">🍎 macOS</a>
-            <a href="{{DL_LINUX}}" data-os="linux">🐧 Linux</a>
+            <a href="{{DL_WIN}}" data-os="win"><span class="ico">🪟</span>Windows</a>
+            <a href="{{DL_MAC}}" data-os="mac"><span class="ico">🍎</span>macOS</a>
+            <a href="{{DL_LINUX}}" data-os="linux"><span class="ico">🐧</span>Linux</a>
           </div>
         </details>
         <a href="#how" class="btn btn-outline">{{hero_cta2}}</a>
