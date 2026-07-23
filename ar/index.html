@@ -234,7 +234,14 @@
       <h1>أدوات الصيانة لديك، متاحة عبر شبكتك كلها.</h1>
       <p class="lead">يربط ShareUSB أجهزة USB والهواتف في ورشك — عن بُعد وبأمان، مع تحكم دقيق في الوصول وتدقيق كامل وتشغيل متواصل كخدمة.</p>
       <div class="hero-cta">
-        <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB-Setup.exe" class="btn btn-primary">تنزيل لـ Windows</a>
+        <details class="dldrop">
+          <summary class="btn btn-primary">تنزيل <span class="caret">▾</span></summary>
+          <div class="menu">
+            <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB-Setup.exe" data-os="win">🪟 Windows</a>
+            <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB.dmg" data-os="mac">🍎 macOS</a>
+            <a href="https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB_amd64.deb" data-os="linux">🐧 Linux</a>
+          </div>
+        </details>
         <a href="#how" class="btn btn-outline">شاهد كيف تعمل</a>
       </div>
       <div class="hero-sub">
@@ -389,13 +396,14 @@
       : /Linux/.test(ua) && !/Android/.test(ua) ? "linux"
       : null;
     if (!os) return;
-    var menu = document.querySelector(".dldrop .menu");
-    if (!menu) return;
-    var a = menu.querySelector('a[data-os="' + os + '"]');
-    if (!a) return;
-    a.classList.add("rec-os");
-    a.insertAdjacentHTML("beforeend", '<span class="star">★</span>');
-    menu.insertBefore(a, menu.firstElementChild);
+    // toate dropdown-urile de download (nav + hero): pune OS-ul detectat primul
+    document.querySelectorAll(".dldrop .menu").forEach(function (menu) {
+      var a = menu.querySelector('a[data-os="' + os + '"]');
+      if (!a) return;
+      a.classList.add("rec-os");
+      a.insertAdjacentHTML("beforeend", '<span class="star">★</span>');
+      menu.insertBefore(a, menu.firstElementChild);
+    });
   })();
 </script>
 

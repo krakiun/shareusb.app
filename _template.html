@@ -220,7 +220,14 @@
       <h1>{{hero_h1}}</h1>
       <p class="lead">{{hero_lead}}</p>
       <div class="hero-cta">
-        <a href="{{DL_WIN}}" class="btn btn-primary">{{hero_cta1}}</a>
+        <details class="dldrop">
+          <summary class="btn btn-primary">{{nav_download}} <span class="caret">▾</span></summary>
+          <div class="menu">
+            <a href="{{DL_WIN}}" data-os="win">🪟 Windows</a>
+            <a href="{{DL_MAC}}" data-os="mac">🍎 macOS</a>
+            <a href="{{DL_LINUX}}" data-os="linux">🐧 Linux</a>
+          </div>
+        </details>
         <a href="#how" class="btn btn-outline">{{hero_cta2}}</a>
       </div>
       <div class="hero-sub">
@@ -375,13 +382,14 @@
       : /Linux/.test(ua) && !/Android/.test(ua) ? "linux"
       : null;
     if (!os) return;
-    var menu = document.querySelector(".dldrop .menu");
-    if (!menu) return;
-    var a = menu.querySelector('a[data-os="' + os + '"]');
-    if (!a) return;
-    a.classList.add("rec-os");
-    a.insertAdjacentHTML("beforeend", '<span class="star">★</span>');
-    menu.insertBefore(a, menu.firstElementChild);
+    // toate dropdown-urile de download (nav + hero): pune OS-ul detectat primul
+    document.querySelectorAll(".dldrop .menu").forEach(function (menu) {
+      var a = menu.querySelector('a[data-os="' + os + '"]');
+      if (!a) return;
+      a.classList.add("rec-os");
+      a.insertAdjacentHTML("beforeend", '<span class="star">★</span>');
+      menu.insertBefore(a, menu.firstElementChild);
+    });
   })();
 </script>
 
