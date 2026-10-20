@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ro" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ShareUSB — Politica de confidențialitate</title>
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0f1b31;--ink2:#42506b;--mut:#697a94;--accent:#2456e6;--line:#e4e9f1;--soft:#f7f9fc;
+    --sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+  header{border-bottom:1px solid var(--line)}
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+  .mark{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:#fff;background:var(--accent)}
+  .mark svg{width:18px;height:18px}
+  .brand b{font-weight:700;font-size:17px}
+  .nav a.back{font-size:14px;color:var(--ink2);text-decoration:none}
+  main{padding:40px 0 64px}
+  h1{font-size:32px;line-height:1.2;margin:0 0 8px;letter-spacing:-.4px}
+  h2{font-size:19px;margin:34px 0 8px}
+  p{margin:0 0 12px;color:var(--ink2)}
+  strong{color:var(--ink)}
+  code{font-family:var(--mono);font-size:.9em;background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+  a{color:var(--accent)}
+  footer{border-top:1px solid var(--line);padding:20px 0;color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><symbol id="plug" viewBox="0 0 24 24">
+  <path d="M7 3v6M17 3v6M6 9h12v3a6 6 0 0 1-12 0V9ZM12 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol></svg>
+<header><div class="wrap nav">
+  <a class="brand" href="/ro/"><span class="mark"><svg><use href="#plug"/></svg></span><b>ShareUSB</b></a>
+  <a class="back" href="/ro/">← Înapoi la shareusb.app</a>
+</div></header>
+<main class="wrap">
+<h1>ShareUSB — Politica de confidențialitate</h1>
+<p><strong>Data intrării în vigoare: 19 octombrie 2026</strong></p>
+<h2>Despre aplicație</h2>
+<p><strong>ShareUSB</strong> (bundle id <code>com.krakiun.shareusb</code>) este o aplicație desktop pentru Windows, macOS și Linux prin care un tehnician lucrează pe telefoane Android și dispozitive USB conectate la alt calculator, după ce proprietarul acelui calculator aprobă cererea. Este publicată de <strong>krakiun-lab</strong> (krakiun.com). Serverul aplicației rulează la <strong>usb.krakiun.com</strong>.</p>
+<h2>Cum funcționează</h2>
+<p>Fiecare copie a aplicației primește un ID permanent de 9 cifre. Un tehnician se conectează la acel ID, iar proprietarul calculatorului acceptă sau respinge cererea și alege ce permite (telefoane, dispozitive USB sau amândouă). După aceea, datele dintre telefon sau dispozitivul USB și calculatorul tehnicianului trec prin serverul nostru, criptate cu TLS. <strong>Serverul doar transmite acest trafic, nu îl stochează</strong>, deci imaginile de ecran, fișierele și comenzile schimbate cu un telefon nu sunt salvate la noi.</p>
+<p>Fișierele descărcate de pe un telefon se salvează doar pe calculatorul tău, iar cele încărcate ajung doar pe telefonul ales.</p>
+<h2>Ce colectăm</h2>
+<p><strong>Identitatea dispozitivului:</strong> ID-ul de 9 cifre și un secret generat de serverul nostru. Păstrăm doar un hash al secretului.</p>
+<p><strong>Contul opțional:</strong> dacă îți faci cont, adresa de email și parola. Parola e stocată ca hash (bcrypt), niciodată în clar.</p>
+<p><strong>Date de conexiune:</strong> adresa IP a calculatoarelor care se conectează la server. Apare în jurnalele serverului, iar IP-ul unui tehnician îi este arătat persoanei care trebuie să-l aprobe.</p>
+<p><strong>Partajări și utilizare:</strong> dacă partajezi un dispozitiv cu alți utilizatori, păstrăm ce e partajat, cu cine și până când. Păstrăm și un jurnal de utilizare (ce dispozitiv, de către ce ID, când și cât timp), ca proprietarul să vadă cine i-a folosit dispozitivele. Se păstrează și ID-urile blocate, grupurile și creditele din grupuri.</p>
+<p><strong>Conexiuni AI (opțional):</strong> dacă legi un asistent AI de contul tău, păstrăm tokenurile de acces pentru acea conexiune și lista de unelte permise. Le poți revoca din aplicație și sunt revocate automat când îți schimbi parola.</p>
+<h2>Rapoarte de erori</h2>
+<p>Când aplicația se închide neașteptat, trimite un raport de eroare (versiunea, sistemul de operare, detalii tehnice ale erorii) către <strong>Sentry</strong>, un serviciu de raportare a erorilor. Rapoartele nu conțin emailul, parolele, fișierele sau conținutul telefoanelor.</p>
+<h2>Emailuri</h2>
+<p>Trimitem doar emailuri tranzacționale: confirmarea contului, coduri și linkuri de resetare a parolei și notificări de securitate despre cont. Livrarea se face prin <strong>Amazon SES</strong>. Fără newslettere, fără marketing.</p>
+<h2>Ce nu facem</h2>
+<p>Fără reclame, fără SDK-uri de analiză sau urmărire, fără vânzare de date și fără partajare cu terți, în afara furnizorilor necesari serviciului: furnizorul de găzduire, <strong>Cloudflare</strong> (protecția rețelei din fața serverului), <strong>Amazon SES</strong> (email) și <strong>Sentry</strong> (rapoarte de erori).</p>
+<h2>Securitate</h2>
+<p>Traficul dintre aplicație și server e criptat cu TLS. Nimeni nu se poate conecta la dispozitivele tale fără aprobarea ta din aplicație, iar un tehnician poate fi deconectat sau blocat oricând. Parolele și secretele dispozitivelor sunt stocate ca hash.</p>
+<h2>Păstrare și ștergere</h2>
+<p>Identitățile, conturile, partajările și jurnalele de utilizare se păstrează cât timp folosești serviciul. Pentru ștergerea contului și a datelor legate de ID-ul tău, trimite o cerere prin <strong><a href="https://krakiun.com/contact/">https://krakiun.com/contact/</a></strong>; le ștergem prompt din sistemele active și din copiile de siguranță într-un termen rezonabil, de regulă cel mult 30 de zile. Jurnalele serverului se păstrează doar cât e necesar pentru funcționarea și protecția serviciului.</p>
+<h2>Drepturile tale</h2>
+<p>Ai dreptul de acces, rectificare, ștergere, portabilitate și opoziție privind prelucrarea datelor personale. Pentru orice cerere, scrie-ne prin <strong><a href="https://krakiun.com/contact/">https://krakiun.com/contact/</a></strong>.</p>
+<h2>Copii</h2>
+<p>Aplicația este un instrument profesional și nu se adresează persoanelor sub 16 ani.</p>
+<h2>Modificări</h2>
+<p>Dacă politica se schimbă, actualizăm această pagină și data intrării în vigoare.</p>
+</main>
+<footer><div class="wrap">© 2026 krakiun-lab · <a href="https://krakiun.com/contact/">Contact</a></div></footer>
+</body>
+</html>
