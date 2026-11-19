@@ -10,11 +10,13 @@ const DIR = dirname(fileURLToPath(import.meta.url));
 const BASE = "https://shareusb.app"; // pentru canonical + hreflang
 const RTL = new Set(["ar", "fa", "ur"]);
 
-// Linkuri de descărcare. Fișierele stau în /downloads/ (găzduite pe site).
-// Windows: pui installer-ul buildat pe winbox aici. Linux → pagina de release.
+// Linkuri de descărcare: fișierele stau în release-urile GitHub ale repo-ului
+// site-ului. Windows și macOS duc la cel mai nou release („latest"), deci la o
+// versiune nouă nu mai e nevoie de regenerat site-ul — doar de urcat fișierele
+// cu aceleași nume. Linux a rămas la 1.0 (nu există build mai nou).
 const DL = {
-  win: "https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB-Setup.exe",
-  mac: "https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB.dmg",
+  win: "https://github.com/krakiun/shareusb.app/releases/latest/download/ShareUSB-Setup.exe",
+  mac: "https://github.com/krakiun/shareusb.app/releases/latest/download/ShareUSB.dmg",
   linux: "https://github.com/krakiun/shareusb.app/releases/download/1.0/ShareUSB_amd64.deb",
 };
 
